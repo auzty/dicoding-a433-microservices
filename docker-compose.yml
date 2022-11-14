@@ -1,0 +1,24 @@
+version: '3'
+services:
+  item-app:
+    #menggunakan image dari github package
+    image: "ghcr.io/auzty/item-app:v1"
+    #container restart ketika berhenti
+    restart: always
+    #melakukan maping port 80 (luar) ke 8080 (container)
+    ports:
+      - "80:8080"
+    #mengecek apakah item-db sudah jalan terlebih dulu sebelum menjalankan item-app
+    depends_on:
+      - item-db
+  item-db:
+    #menggunakan mongo:3 dari dockerhub
+    image: "mongo:3"
+    #container restart ketika berhenti
+    restart: always
+    #melakukan volume mount dengan nama app-db ke /data/db(container)
+    volumes:
+       - app-db:/data/db
+volumes:
+  #membuat volume mount dengan nama app-db
+  app-db:
