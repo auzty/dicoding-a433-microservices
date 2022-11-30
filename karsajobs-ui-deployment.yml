@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: karsajobs-ui-deployment
+  labels:
+    app: karsajobs-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: karsajobs-ui
+  template:
+    metadata:
+      labels:
+        app: karsajobs-ui
+    spec:
+      containers:
+      - name: karsajobs-ui
+        image: ghcr.io/auzty/karsajobs-ui:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+          name: 8000tcp02
+          protocol: TCP
