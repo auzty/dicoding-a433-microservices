@@ -12,16 +12,7 @@ jobs:
     
     - name: Linting Dockerfile
       id: hadolint
-      uses: hadolint/hadolint-action@v2.1.0
-      with:
-        dockerfile: Dockerfile
-        failure-threshold: error
-        verbose: true
-        no-color: true
-
-    - name: Display Result Hadolint
-      run: |
-        echo "Hadolint Status : ${{ steps.hadolint.outcome }}"
+      run: docker run --rm -i hadolint/hadolint < Dockerfile
 
     - name: Setting up Go For Test Unit
       uses: actions/setup-go@v3
