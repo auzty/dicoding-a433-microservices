@@ -20,7 +20,7 @@ jobs:
       run: |
         echo `
         #### Hadolint: ${{ steps.hadolint.outcome }}
-        ${{ steps.hadolint.output}}
+        ${{join(steps.hadolint.outputs.*, '\n')}}
         `
 
     - name: Setting up Go For Test Unit
