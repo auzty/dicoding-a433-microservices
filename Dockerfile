@@ -8,6 +8,7 @@ COPY go.mod .
 COPY go.sum .
 RUN go mod download
 
+test fail
 COPY . .
 RUN mkdir /build; \
     go build -o /build/ ./...
