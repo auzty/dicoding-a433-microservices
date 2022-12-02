@@ -15,6 +15,9 @@ jobs:
       uses: hadolint/hadolint-action@v2.1.0
       with:
         dockerfile: Dockerfile
+        failure-threshold: error
+        verbose: true
+        no-color: true
 
     - name: Display Result Hadolint
       run: |
