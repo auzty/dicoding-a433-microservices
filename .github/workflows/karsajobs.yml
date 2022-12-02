@@ -11,7 +11,6 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Linting Dockerfile
-      id: hadolint
       run: docker run --rm -i hadolint/hadolint < Dockerfile
 
     - name: Setting up Go For Test Unit
