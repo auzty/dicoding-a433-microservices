@@ -10,4 +10,4 @@ spec:
   - name: tcp8000
     port: 8000
     targetPort: 8000
-    nodePort: 30001
+    nodePort: 30001 # binding node port ke 30001 agar tidak mendapat port random

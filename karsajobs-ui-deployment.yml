@@ -5,7 +5,7 @@ metadata:
   labels:
     app: karsajobs-ui
 spec:
-  replicas: 1
+  replicas: 1 # set hanya 1 pod yang akan berjalan
   selector:
     matchLabels:
       app: karsajobs-ui
@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: karsajobs-ui
-        image: ghcr.io/auzty/karsajobs-ui:latest
-        imagePullPolicy: Always
+        image: ghcr.io/auzty/karsajobs-ui:latest # pull dari github registry
+        imagePullPolicy: Always # akan selalu pull walaupun images ada sudah ada 
         ports:
-        - containerPort: 8000
+        - containerPort: 8000 # melakukan expose port 8000 untuk pod yang sedang berjalan
           name: 8000tcp02
           protocol: TCP
