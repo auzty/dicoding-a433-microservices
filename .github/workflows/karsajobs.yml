@@ -14,6 +14,7 @@ jobs:
       uses: hadolint/hadolint-action@v2.1.0
       with:
         dockerfile: Dockerfile
+        verbose: true
 
     - name: Setting up Go For Test Unit
       uses: actions/setup-go@v3
