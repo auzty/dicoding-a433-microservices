@@ -18,10 +18,7 @@ jobs:
 
     - name: Display Result Hadolint
       run: |
-        echo `
-        #### Hadolint: ${{ steps.hadolint.outcome }}
-        ${{join(steps.hadolint.outputs.*, '\n')}}
-        `
+        echo `Hadolint Status : ${{ steps.hadolint.outcome }}`
 
     - name: Setting up Go For Test Unit
       uses: actions/setup-go@v3
