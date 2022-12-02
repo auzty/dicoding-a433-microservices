@@ -17,23 +17,23 @@ spec:
       containers:
       - name: karsajobs
         env:
-        - name: APP_PORT
+        - name: APP_PORT # set port aplikasi karsajob ke 8080
           value: "8080"
         - name: MONGO_HOST
-          value: mongodb-service.default.svc.cluster.local
+          value: mongodb-service.default.svc.cluster.local # set mongodb host menggunakan internal cluster
         - name: MONGO_USER
           valueFrom:
-            secretKeyRef:
+            secretKeyRef: # mengambil username dari kubernetes secret
               name: mongo-secret
               key: MONGO_ROOT_USERNAME
         - name: MONGO_PASS
           valueFrom:
-            secretKeyRef:
+            secretKeyRef: # mengambil password dari kubernetes secret
               name: mongo-secret
               key: MONGO_ROOT_PASSWORD
-        image: ghcr.io/auzty/karsajobs:latest
+        image: ghcr.io/auzty/karsajobs:latest # mengambil docker image dari github registry
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 8080 # bind port pod ke 8080
           name: 8080tcp02
           protocol: TCP

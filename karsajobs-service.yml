@@ -9,5 +9,5 @@ spec:
   ports:
   - name: tcp8080
     port: 8080
-    targetPort: 8080
-    nodePort: 30002
+    targetPort: 8080 # target dari port sesuai pod port
+    nodePort: 30002 # memastikan nodePort untuk dapat 30002 agar tidak random
